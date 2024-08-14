@@ -1,7 +1,4 @@
-### README.md
-
-```markdown
-# FreundlicheMinute Trigger Script
+###  FreundlicheMinute Trigger Script
 
 Dieses Python-Skript ermöglicht es, eine spezifische Präsentation in ProPresenter zur vorgegebenen Zeit automatisch zu starten. Es stellt sicher, dass nur eine Instanz des Skripts gleichzeitig ausgeführt wird, und setzt zusätzlich einen Countdown-Timer in ProPresenter.
 
@@ -95,8 +92,3 @@ Das Skript verwaltet einen PID-Datei-Mechanismus, um sicherzustellen, dass immer
 ## Lizenz
 
 Dieses Projekt steht unter der MIT-Lizenz. Weitere Informationen findest du in der Datei [LICENSE](LICENSE).
-```
-
-### Zusammenfassung
-
-Diese README-Datei erklärt, wie das Skript installiert und verwendet wird, und bietet Beispiele für die möglichen Parameter. Du kannst die Datei nach Bedarf anpassen, falls sich der Code oder die Anforderungen ändern.
