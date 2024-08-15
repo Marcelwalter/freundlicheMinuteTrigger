@@ -35,27 +35,28 @@ def single_process():
     MYPID = os.getpid()
 
     if os.path.isfile(PIDFILE):
-            print("Old process ID found!")
+            #print("Old process ID found!")
             try:
                     with open(PIDFILE,'r') as pidfile:
                             OLDPID = int(pidfile.read())
             except Exception as e:
                     OLDPID = None
-                    print(f"Could not convert the pid: {e}")
+                    #print(f"Could not convert the pid: {e}")
             if OLDPID:
                     try:
                             os.kill(OLDPID,signal.SIGTERM)
-                            print("Successfully killed the old process!")
+                            #print("Successfully killed the old process!")
                     except ProcessLookupError as e:
-                            print("No such process running!")
+                            #print("No such process running!")
+                            print('')
                     except Exception as e:
-                            print(f"Failed to kill the old process because: {e}")
+                            #print(f"Failed to kill the old process because: {e}")
                             raise SystemExit
-            else:
-                    print("The older process cannot be found!")
+            #else:
+            #        print("The older process cannot be found!")
 
-    else:
-            print("There is no previous instance running at the moment!")
+    #else:
+    #        print("There is no previous instance running at the moment!")
 
     with open(PIDFILE,'w') as pidfile:
             pidfile.write(str(MYPID))
@@ -201,7 +202,7 @@ def main(trigger_time_str, playlist_name):
     playlists = get_current_playlist()
 
     if  playlists['presentation']['playlist'] != None:
-        print('Selecting current Playlist')
+        print('Using current Playlist')
         playlist_uuid = playlists['presentation']['playlist']['uuid']
             
         # Get all playlist items
@@ -210,7 +211,7 @@ def main(trigger_time_str, playlist_name):
     else:
        #get playlist details of Gottesdienst instead
        playlist_details = get_playlist_by_name(playlist_name)
-       print(f'Current playlist not found. Selecting backup Playlist: {playlist_name}')
+       print(f'Current playlist not found. Using backup Playlist: {playlist_name}')
 
     # Find the UUID of the desired presentation
     presentation_uuid = find_presentation_uuid(playlist_details, PRESENTATION_NAME)
@@ -270,10 +271,13 @@ if __name__ == "__main__":
 
     if os.path.isfile(PIDFILE):
         try:
-                os.remove(PIDFILE)
-                print("The PIDfile has been removed!")
+            os.remove(PIDFILE)
+            #print("The PIDfile has been removed!")
         except:
-                print("The remove has failed!")
+            #print("The remove has failed!")
+            sys.exit(1)
+        sys.exit(0)
 
     else:
-            print("No pid to remove!")
+        #print("No pid to remove!")
+        sys.exit(0)
