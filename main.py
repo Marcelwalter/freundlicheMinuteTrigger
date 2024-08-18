@@ -238,6 +238,7 @@ def parseArguments():
     parser.add_argument("-n", "--name", help="Name der Präsentation die gespielt werden soll.", type=str, default='FreundlicheMinute')
     parser.add_argument("-t", "--timer", help="Name des Timers der gestartet werden soll.", type=str, default='Freundliche Minute')
     parser.add_argument("-np", "--networkport", help="Port auf dem ProPresenter Control zuhört.", type=str, default='1025')
+    parser.add_argument("-i", "--ip", help="IP Adresse auf welcher ProPresenter zu erreichen ist.", type=str, default='10.0.30.2')
 
     # Print version
     parser.add_argument("--version", action="version", version='%(prog)s - Version 1.0')
@@ -264,6 +265,7 @@ if __name__ == "__main__":
     PRESENTATION_NAME = args.name
     TIMER_NAME = args.timer
     PRO_PRESENTER_PORT = args.networkport
+    PRO_PRESENTER_IP = args.ip
 
     single_process()
     
