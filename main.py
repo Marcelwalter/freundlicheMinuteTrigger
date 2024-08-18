@@ -9,7 +9,7 @@ import argparse
 
 
 # ProPresenter API details
-PRO_PRESENTER_IP = "127.0.0.1"
+PRO_PRESENTER_IP = "10.0.30.2"
 PRO_PRESENTER_PORT = "1025"
 BASE_URL = f"http://{PRO_PRESENTER_IP}:{PRO_PRESENTER_PORT}/v1"
 
