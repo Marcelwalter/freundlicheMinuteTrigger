@@ -28,10 +28,10 @@ Dieses Python-Skript ermöglicht es, eine spezifische Präsentation in ProPresen
    ```
 4. **Skript ausführbar machen**
 
-```bash
-chmod +x freundlicheMinute.sh
-
-6. **Skript ausführen**:
+   ```bash
+   chmod +x freundlicheMinute.sh
+   ```
+5. **Skript ausführen**
    ```bash
    ./freundlicheMinute.sh 11:28 -bp Gottesdienst -n FreundlicheMinute -t "Freundliche Minute" -np 1025
    ```
