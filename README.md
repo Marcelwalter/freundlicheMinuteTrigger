@@ -5,10 +5,7 @@ Dieses Python-Skript ermöglicht es, eine spezifische Präsentation in ProPresen
 ## Voraussetzungen
 
 1. **Python 3.7+** muss installiert sein.
-2. Installiere die notwendigen Python-Abhängigkeiten (falls noch nicht geschehen):
-   ```bash
-   pip install requests
-   ```
+2. Git sollte installiert sein.
 3. Das Skript nutzt die ProPresenter API, die auf dem gleichen Rechner wie das Skript läuft oder über eine IP-Adresse erreichbar ist.
 
 ## Installation
@@ -21,18 +18,22 @@ Dieses Python-Skript ermöglicht es, eine spezifische Präsentation in ProPresen
 
 2. **Virtuelle Umgebung einrichten** (empfohlen):
    ```bash
-   python3 -m venv venv
+   python3 -m venv .venv
    source venv/bin/activate
    ```
 
 3. **Abhängigkeiten installieren**:
    ```bash
-   pip install -r requirements.txt
+   pip3 install -r requirements.txt
    ```
+4. **Skript ausführbar machen**
 
-4. **Skript ausführen**:
+```bash
+chmod +x freundlicheMinute.sh
+
+6. **Skript ausführen**:
    ```bash
-   ./run_script.sh 11:28 -bp Gottesdienst -n FreundlicheMinute -t "Freundliche Minute" -np 1025
+   ./freundlicheMinute.sh 11:28 -bp Gottesdienst -n FreundlicheMinute -t "Freundliche Minute" -np 1025
    ```
 
 ## Verwendung
@@ -42,7 +43,7 @@ Dieses Python-Skript ermöglicht es, eine spezifische Präsentation in ProPresen
 Das Skript erfordert mindestens einen Pflichtparameter (die Zeit) und bietet mehrere optionale Parameter:
 
 ```bash
-python script.py <time> [options]
+python main.py <time> [options]
 ```
 
 ### Pflichtparameter
@@ -55,29 +56,30 @@ python script.py <time> [options]
 - **`-n, --name`**: Name der Präsentation, die gestartet werden soll. Standard: `FreundlicheMinute`.
 - **`-t, --timer`**: Name des Timers, der gestartet werden soll. Standard: `Freundliche Minute`.
 - **`-np, --networkport`**: Netzwerkport, auf dem ProPresenter Control zuhört. Standard: `1025`.
+- **`-i, --ip`**: IP-Adresse, auf dem ProPresenter installiert ist. Standard: `10.0.30.2`.
 
 ### Beispiele
 
 1. **Einfaches Beispiel:**
    ```bash
-   python script.py 11:28
+   python main.py 11:28
    ```
    Dieses Beispiel startet die Präsentation `FreundlicheMinute` um `11:28` und setzt den Timer `Freundliche Minute` bis zu dieser Uhrzeit.
 
 2. **Mit Backup-Playlist:**
    ```bash
-   python script.py 11:28 -bp AlternativePlaylist
+   python main.py 11:28 -bp AlternativePlaylist
    ```
    Falls keine aktive Playlist vorhanden ist, wird `AlternativePlaylist` verwendet.
 
 3. **Mit benutzerdefiniertem Präsentations- und Timer-Namen:**
    ```bash
-   python script.py 11:28 -n "MeinePräsentation" -t "Mein Timer"
+   python main.py 11:28 -n "MeinePräsentation" -t "Mein Timer"
    ```
 
 4. **Mit benutzerdefiniertem Netzwerkport:**
    ```bash
-   python script.py 11:28 -np 1234
+   python main.py 11:28 -np 1234
    ```
 
 ### PID-Handling
